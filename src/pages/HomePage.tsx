@@ -93,7 +93,7 @@ export const HomePage: React.FC = () => {
           <div className="mb-4">
             <span className="font-pixel text-[9px] sm:text-[10px] text-[#E6CA85] uppercase tracking-widest bg-black/60 px-4 py-2 rounded-full border border-[#E6CA85]/40 inline-flex items-center gap-2 backdrop-blur-md shadow-lg">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-              <span>{isKk ? 'KUNDELIK 2.0 • 7 842 МЕКТЕП • БІРЫҢҒАЙ ЭКОЖҮЙЕ' : 'KUNDELIK 2.0 • 7 842 ШКОЛ • ЕДИНАЯ ЭКОСИСТЕМА'}</span>
+              <span>{isKk ? 'SMART MEKTEP • 7 842 МЕКТЕП • БІРЫҢҒАЙ ЭКОЖҮЙЕ' : 'SMART MEKTEP • 7 842 ШКОЛ • ЕДИНАЯ ЭКОСИСТЕМА'}</span>
             </span>
           </div>
 
@@ -115,8 +115,8 @@ export const HomePage: React.FC = () => {
           {/* Subtitle in classical Kazakh serif font */}
           <p className="text-white/90 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8 font-serif">
             {isKk
-              ? 'Қазақстанның барлық орта мектептері мен лицейлеріне арналған мемлекеттік цифрлық білім экоплатформасы: электронды күнделік пен бағалау журналы (БЖБ/ТЖБ), AI сабақ кестесі, академиялық ментор және қағазсыз мектеп стандарты.'
-              : 'Государственная цифровая образовательная экосистема для всех школ и лицеев Казахстана: электронный журнал и дневник (СОР/СОЧ), оптимизатор расписания с защитой от накладок, AI академический ментор и стандарт безбумажной школы.'}
+              ? 'Қазақстанның барлық орта мектептері мен лицейлеріне арналған мемлекеттік цифрлық білім экоплатформасы: халықаралық құзыреттер матрицасы, оқушы кабинеті, AI сабақ кестесі, академиялық ментор және қағазсыз мектеп стандарты.'
+              : 'Государственная цифровая образовательная экосистема для всех школ и лицеев Казахстана: международная матрица компетенций, умное расписание уроков без накладок, AI академический ментор и стандарт безбумажной школы.'}
           </p>
 
           {/* Dual Action Buttons */}
@@ -125,7 +125,7 @@ export const HomePage: React.FC = () => {
               to="/dashboard"
               className="btn-crimson text-sm sm:text-base py-3.5 px-9 shadow-2xl hover:scale-105 flex items-center gap-2 font-serif font-semibold"
             >
-              <span>{isKk ? 'Порталға кіру (Электронды күнделік)' : 'Войти в дневник и журнал'}</span>
+              <span>{isKk ? 'Порталға кіру (Оқушы кабинеті)' : 'Войти в кабинет учащегося'}</span>
               <ArrowRight className="w-4 h-4 ml-1" />
             </Link>
 
@@ -235,7 +235,7 @@ export const HomePage: React.FC = () => {
                   {isKk ? 'Орта және негізгі мектеп' : 'Основная и старшая школа'}
                 </h3>
                 <p className="text-white/80 text-xs mt-0.5 line-clamp-1">
-                  {isKk ? 'Критериалды бағалау: БЖБ & ТЖБ' : 'Критериальное оценивание: СОР и СОЧ'}
+                  {isKk ? 'Құзыреттер матрицасы & Жобалық қорғау' : 'Матрица компетенций и Защита проектов'}
                 </p>
               </div>
             </Link>
@@ -464,7 +464,7 @@ export const HomePage: React.FC = () => {
                   <span className="font-climate text-2xl text-white mt-1 block">
                     {kazakhstanRegions[selectedRegion].schools}
                   </span>
-                  <span className="text-[10px] text-emerald-400 font-mono">100% Kundelik 2.0</span>
+                  <span className="text-[10px] text-emerald-400 font-mono">100% Smart Mektep</span>
                 </div>
 
                 <div className="p-4 rounded-xl bg-black/40 border border-stone-800">
@@ -900,7 +900,7 @@ export const HomePage: React.FC = () => {
               </div>
               <div className="flex items-center gap-2 font-serif font-bold text-stone-700 text-sm tracking-tight">
                 <BookOpen className="w-5 h-5 text-[#7A1526]" />
-                <span>KUNDELIK.KZ PROTOCOL</span>
+                <span>NATIONAL EDTECH STANDARD</span>
               </div>
             </div>
           </div>

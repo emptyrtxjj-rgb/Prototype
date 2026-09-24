@@ -347,7 +347,7 @@ export const HelpPage: React.FC = () => {
             <div>
               <h4 className="font-serif font-bold text-stone-900 text-base">{isKk ? 'IT Орталық & Цифрлық қолдау' : 'IT Центр & Цифровая поддержка'}</h4>
               <p className="text-xs text-stone-600 mt-1 font-serif leading-relaxed">
-                {isKk ? 'Kundelik 2.0 аккаунттары, мектептік Wi-Fi және планшеттерді баптау.' : 'Доступ к Mektep Hub, Kundelik KZ, школьный Wi-Fi, обслуживание планшетов.'}
+                {isKk ? 'Smart School аккаунттары, мектептік Wi-Fi және дербес планшеттерді баптау.' : 'Доступ к Smart School KZ, школьный Wi-Fi, обслуживание планшетов.'}
               </p>
             </div>
             <span className="text-xs font-mono text-emerald-700 font-semibold block">{isKk ? 'Ішкі тел: 301' : 'Внутр. тел: 301'}</span>

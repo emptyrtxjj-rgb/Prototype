@@ -204,7 +204,7 @@ export const MentorPage: React.FC = () => {
 
           <div className="flex items-center gap-2 self-start sm:self-center">
             <span className="font-pixel text-[8px] bg-[#E6CA85]/20 text-[#7A1526] border border-[#E6CA85]/50 px-3 py-1.5 rounded-full font-bold">
-              IELTS / БЖБ / ТЖБ СТАНДАРТЫ
+              IELTS / CAMBRIDGE / ACADEMIC RESEARCH
             </span>
           </div>
         </div>

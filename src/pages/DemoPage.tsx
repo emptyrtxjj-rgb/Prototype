@@ -53,18 +53,18 @@ export const DemoPage: React.FC = () => {
   const testCases: TestCase[] = [
     {
       id: 'test-1',
-      name: 'Тест 1: Электронный дневник Kundelik 2.0 (СОР, СОЧ и расчет GPA 10/10)',
-      category: 'Kundelik 2.0',
-      description: 'Проверка вычисления средневзвешенного балла по 10-балльной системе и валидация формативных оценок.',
-      expected: 'Оценки от 1 до 10, расчет среднего балла 9.6/10, статус 200 OK.',
+      name: 'Тест 1: Матрица академических компетенций (Mastery Framework & Векторная оценка)',
+      category: 'Competency Engine',
+      description: 'Проверка вычисления интегрального индекса мастерства (0–100%) по 6 ключевым направлениям и валидация проектных вех.',
+      expected: 'Интегральное мастерство 94.8%, статус Mastery Tier, все 18 вех верифицированы.',
       run: async () => {
         const start = performance.now();
         await new Promise(r => setTimeout(r, 60));
         const duration = Math.round(performance.now() - start);
         return {
           success: true,
-          message: 'Дневник синхронизирован: 6 предметов, средний балл 9.63 / 10, все СОР/СОЧ верифицированы',
-          details: { gpa: '9.63 / 10', subjects: 6, bzbPassed: 14, tzbPassed: 6 },
+          message: 'Матрица синхронизирована: 6 дисциплин, индекс мастерства 94.8% (Шың / Mastery), eGov верификация успешна',
+          details: { masteryIndex: '94.8%', tier: 'Mastery', competencies: 6, milestonesPassed: 18 },
           durationMs: duration
         };
       }

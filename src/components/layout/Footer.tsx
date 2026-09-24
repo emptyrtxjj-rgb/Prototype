@@ -40,8 +40,8 @@ export const Footer: React.FC = () => {
             </h3>
             <p className="text-white/80 text-xs sm:text-sm">
               {isKk 
-                ? 'Республикалық олимпиада нәтижелері, БЖБ/ТЖБ кестесі және маңызды хабарландыруларды поштаңызға алыңыз.' 
-                : 'Результаты республиканских олимпиад, расписание СОР/СОЧ и официальные уведомления на ваш e-mail.'}
+                ? 'Республикалық олимпиада нәтижелері, ғылыми жобалар және маңызды хабарландыруларды поштаңызға алыңыз.' 
+                : 'Результаты республиканских олимпиад, научные проекты и официальные уведомления на ваш e-mail.'}
             </p>
           </div>
 
@@ -79,14 +79,14 @@ export const Footer: React.FC = () => {
                   SMART SCHOOL KZ
                 </span>
                 <span className="text-[9px] font-pixel text-[#C5A059] tracking-wider uppercase block mt-1">
-                  KUNDELIK 2.0 // EGOV MEKTEP
+                  MEKTEP HUB // EGOV ECOSYSTEM
                 </span>
               </div>
             </div>
             <p className="text-xs text-[#9A9EAB] leading-relaxed">
               {isKk
-                ? 'Қазақстанның 7 842 мектебіне арналған бірыңғай цифрлық білім платформасы. Электронды күнделік, бағалау журналы, сабақ кестесі және AI ментор.'
-                : 'Единая цифровая образовательная платформа для 7 842 школ Казахстана. Электронный дневник, журнал оценок, умное расписание и AI наставник.'}
+                ? 'Қазақстанның 7 842 мектебіне арналған бірыңғай цифрлық білім экожүйесі. Құзыреттер матрицасы, оқушы кабинеті, ақылды сабақ кестесі және AI академиялық наставник.'
+                : 'Единая цифровая образовательная экосистема для 7 842 школ Казахстана. Матрица компетенций, кабинет учащегося, умное расписание и академический AI наставник.'}
             </p>
             <div className="flex items-center gap-3 pt-2 text-white">
               <div className="w-8 h-8 rounded-full bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#7A1526] hover:border-[#7A1526] transition-colors cursor-pointer" title="ҚР Оқу-ағарту министрлігі">
@@ -110,7 +110,7 @@ export const Footer: React.FC = () => {
               <li>
                 <Link to="/dashboard" className="hover:text-white hover:underline transition-colors flex items-center gap-1.5">
                   <ArrowRight className="w-3 h-3 text-[#C5A059]" />
-                  <span>{isKk ? 'Электронды күнделік & Журнал' : 'Электронный дневник и журнал'}</span>
+                  <span>{isKk ? 'Құзыреттер матрицасы & Кабинет' : 'Матрица компетенций и Кабинет'}</span>
                 </Link>
               </li>
               <li>
@@ -122,13 +122,19 @@ export const Footer: React.FC = () => {
               <li>
                 <Link to="/mentor" className="hover:text-white hover:underline transition-colors flex items-center gap-1.5">
                   <ArrowRight className="w-3 h-3 text-[#C5A059]" />
-                  <span>{isKk ? 'AI Академиялық Ментор (Эссе & БЖБ)' : 'AI Академический Ментор (Эссе и СОР)'}</span>
+                  <span>{isKk ? 'AI Академиялық Ментор & Зерттеулер' : 'AI Академический Ментор и Исследования'}</span>
                 </Link>
               </li>
               <li>
                 <Link to="/eco" className="hover:text-white hover:underline transition-colors flex items-center gap-1.5">
                   <ArrowRight className="w-3 h-3 text-[#C5A059]" />
                   <span>{isKk ? 'Эко-мониторинг & Қағаз үнемдеу' : 'Эко-мониторинг и аудит ресурсов'}</span>
+                </Link>
+              </li>
+              <li>
+                <Link to="/activity" className="hover:text-white hover:underline transition-colors flex items-center gap-1.5">
+                  <ArrowRight className="w-3 h-3 text-[#C5A059]" />
+                  <span>{isKk ? 'Спорт секциялары & Экспедициялар' : 'Спортивные секции и Экспедиции'}</span>
                 </Link>
               </li>
               <li>

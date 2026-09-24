@@ -38,17 +38,19 @@ export const Navbar: React.FC = () => {
   const navLinks = [
     { to: '/', label: isKz ? 'Басты бет' : 'Главная' },
     { 
-      label: isKz ? 'Kundelik LMS' : 'Дневник LMS', 
+      label: isKz ? 'Оқу Хабы' : 'Учебный Хаб', 
       isDropdown: true,
       items: [
-        { to: '/dashboard', label: isKz ? 'Оқушы кабинеті & Бағалар' : 'Кабинет ученика и Оценки' },
+        { to: '/dashboard', label: isKz ? 'Құзыреттер матрицасы & Кабинет' : 'Матрица компетенций и Кабинет' },
         { to: '/schedule', label: isKz ? 'Интерактивті сабақ кестесі' : 'Умное расписание уроков' },
         { to: '/mentor', label: isKz ? 'AI Академиялық Ментор' : 'AI Академический Ментор' },
+        { to: '/activity', label: isKz ? 'Спорт & Экспедициялар' : 'Спорт и Экспедиции' },
         { to: '/eco', label: isKz ? '11-сынып Эко-мониторингі' : 'Эко-мониторинг 11 класса' },
       ]
     },
     { to: '/announcements', label: isKz ? 'Жаңалықтар & Олимпиадалар' : 'Новости и Олимпиады' },
     { to: '/help', label: isKz ? 'Служба көмек (111)' : 'Служба помощи (111)' },
+    { to: '/contacts', label: isKz ? 'Байланыс' : 'Контакты' },
     { to: '/about', label: isKz ? 'Платформа туралы' : 'О платформе' }
   ];
 
@@ -120,10 +122,10 @@ export const Navbar: React.FC = () => {
             <AcademicCrest size={42} className="group-hover:scale-105 transition-transform" />
             <div className="text-left">
               <div className="font-serif font-bold text-lg sm:text-xl tracking-tight text-[#1C1F23] leading-none group-hover:text-[#7A1526] transition-colors">
-                KUNDELIK KZ
+                SMART SCHOOL KZ
               </div>
               <div className="font-pixel text-[8px] tracking-wider text-[#C5A059] mt-0.5">
-                SMART MEKTEP HUB 2026
+                NATIONAL EDTECH PLATFORM
               </div>
             </div>
           </Link>
