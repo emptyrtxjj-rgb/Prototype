@@ -1,0 +1,18 @@
+{
+  "student": {
+    "id": "STU-2026-941",
+    "name": "Әмина Сәрсенбай",
+    "role": "Оқушы (Student)",
+    "grade": "11 «А» сыныбы",
+    "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80",
+    "currentRoom": "204",
+    "todayStats": {
+      "lessonsCount": 3,
+      "clubsCount": 1,
+      "freeSlots": 2
+    },
+    "attendance": "98.4%",
+    "gpa": "4.92 / 5.0",
+    "ecoPoints": 420
+  }
+}

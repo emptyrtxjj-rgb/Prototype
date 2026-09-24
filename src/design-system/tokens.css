@@ -1,0 +1,276 @@
+/* ==============================================================================
+   SMART SCHOOL KZ — UNIVERSAL DESIGN SYSTEM TOKENS
+   Visual Identity: Educational × Digital × Premium × Human × Futuristic
+   Calm Technology Principles
+   ============================================================================== */
+
+@font-face {
+  font-family: "Geist Pixel Circle";
+  src: local("Courier New"), local("monospace");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* 05. Core Color System */
+  --bg: #000000;
+  --surface: #ffffff;
+  --surface-soft: #f5f7f8;
+  --text: #ffffff;
+  --text-dark: #111111;
+  --muted: #8e8e8e;
+  --muted-light: #c4c2c3;
+  --nav-text: #2e2e2e;
+
+  /* Blue Identity */
+  --blue: #2563eb;
+  --blue-bright: #3b82f6;
+  --blue-dark: #0f2f6b;
+
+  /* Green Identity */
+  --green: #16a34a;
+  --green-bright: #22c55e;
+  --green-dark: #14532d;
+
+  /* Neutrals & Borders */
+  --pill-dark: #28282a;
+  --border-light: rgba(0, 0, 0, 0.10);
+  --border-dark: rgba(255, 255, 255, 0.14);
+  --white-border: rgba(255, 255, 255, 0.40);
+
+  /* Shadows */
+  --nav-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  --soft-shadow: 0 12px 40px rgba(0, 0, 0, 0.10);
+  --deep-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+
+  /* 16. Border Radius System */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-xl: 32px;
+  --radius-pill: 999px;
+
+  /* 58. Z-Index System */
+  --z-base: 1;
+  --z-content: 10;
+  --z-header: 100;
+  --z-dropdown: 200;
+  --z-modal: 500;
+  --z-overlay: 600;
+  --z-toast: 700;
+
+  /* 07-09. Typography Stacks */
+  --font-ui: "Inter", "Segoe UI", system-ui, sans-serif;
+  --font-display: "BubbledotICG-FinePos", "Geist Pixel Circle", monospace;
+
+  /* 41-44. Motion System */
+  --ease-primary: cubic-bezier(0.22, 1, 0.36, 1);
+  --duration-fast: 0.25s;
+  --duration-base: 0.35s;
+  --duration-entrance: 0.85s;
+  --duration-header: 0.7s;
+
+  /* Focus Ring */
+  --focus-ring: 0 0 0 3px rgba(37, 99, 235, 0.18);
+  --focus-ring-error: 0 0 0 3px rgba(239, 68, 68, 0.18);
+  --focus-ring-green: 0 0 0 3px rgba(22, 163, 74, 0.18);
+}
+
+/* 60. Light Mode Overrides */
+html.light,
+.theme-light {
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #f5f7f8;
+  --text: #111111;
+  --text-dark: #111111;
+  --muted: #707070;
+  --muted-light: #94a3b8;
+  --border-light: rgba(0, 0, 0, 0.08);
+  --border-dark: rgba(0, 0, 0, 0.12);
+  --white-border: rgba(0, 0, 0, 0.20);
+  --soft-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
+  --deep-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
+}
+
+/* 11-13. Typography Scale & Responsive Clamps */
+.text-display-xl {
+  font-family: var(--font-display);
+  font-size: clamp(48px, 8vw, 120px);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.text-display {
+  font-family: var(--font-display);
+  font-size: clamp(40px, 6.2vw, 80px);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.text-h1 {
+  font-family: var(--font-ui);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 600;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+.text-h2 {
+  font-family: var(--font-ui);
+  font-size: clamp(28px, 3.5vw, 48px);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.text-h3 {
+  font-family: var(--font-ui);
+  font-size: clamp(22px, 2.5vw, 32px);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.text-body-lg {
+  font-family: var(--font-ui);
+  font-size: clamp(16px, 1.55vw, 20px);
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+
+.text-body {
+  font-family: var(--font-ui);
+  font-size: 15px;
+  font-weight: 400;
+  letter-spacing: 0;
+  line-height: 1.55;
+}
+
+.text-small {
+  font-family: var(--font-ui);
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.text-micro {
+  font-family: var(--font-ui);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.font-tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+/* 14. Responsive Container System */
+.layout-container {
+  width: min(100% - 32px, 1440px);
+  margin-inline: auto;
+}
+
+.layout-container-editorial {
+  width: min(100% - 32px, 1600px);
+  margin-inline: auto;
+}
+
+/* 15. Standard Section Spacing */
+.section-spacing {
+  padding-block: clamp(72px, 10vw, 160px);
+}
+
+.page-padding-x {
+  padding-inline: clamp(24px, 3vw, 48px);
+}
+
+@media (max-width: 720px) {
+  .page-padding-x {
+    padding-inline: 16px;
+  }
+}
+
+/* 20. Active Three-Dot Indicator */
+.nav-dot-indicator {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background-color: currentColor;
+  box-shadow: -5px 0 currentColor, 5px 0 currentColor;
+}
+
+/* 25. Restrained Glassmorphism */
+.glass-surface {
+  background: rgba(17, 17, 17, 0.72);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-dark);
+}
+
+html.light .glass-surface {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid var(--border-light);
+}
+
+/* 43. Universal Entrance Reveal Animation */
+.reveal-init {
+  opacity: 0;
+  transform: translateY(22px) scale(0.98);
+  filter: blur(6px);
+  transition: opacity var(--duration-entrance) var(--ease-primary),
+              transform var(--duration-entrance) var(--ease-primary),
+              filter var(--duration-entrance) var(--ease-primary);
+}
+
+.reveal-active {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+/* 44. Header Reveal Animation */
+.header-reveal-init {
+  opacity: 0;
+  transform: translateY(-18px);
+  transition: opacity var(--duration-header) var(--ease-primary),
+              transform var(--duration-header) var(--ease-primary);
+}
+
+.header-reveal-active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 40. Minimum Touch Target (44x44) */
+.touch-target {
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 55. Reduced Motion Rules */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal-init,
+  .header-reveal-init {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}

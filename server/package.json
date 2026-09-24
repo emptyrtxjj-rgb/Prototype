@@ -1,0 +1,7 @@
+{
+  "name": "smart-school-server",
+  "version": "1.0.0",
+  "private": true,
+  "type": "commonjs",
+  "main": "server.js"
+}

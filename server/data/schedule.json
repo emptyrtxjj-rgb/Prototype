@@ -1,0 +1,57 @@
+[
+  {
+    "day": "Понедельник",
+    "dayCode": "mon",
+    "lessons": [
+      { "id": "sch-1", "time": "08:30 - 09:15", "subject": "Математика (Алгебра)", "room": "204", "type": "LESSON", "teacher": "Қайырбеков Н." },
+      { "id": "sch-2", "time": "09:25 - 10:10", "subject": "Информатика & AI", "room": "205", "type": "LESSON", "teacher": "Ибраев С." },
+      { "id": "sch-3", "time": "10:25 - 11:10", "subject": "Русский язык", "room": "222", "type": "LESSON", "teacher": "Смағұлов Е." },
+      { "id": "sch-4", "time": "11:20 - 12:00", "subject": "Большая перемена & Ланч", "room": "110", "type": "BREAK", "teacher": "Столовая" },
+      { "id": "sch-5", "time": "12:15 - 13:00", "subject": "Физическая культура", "room": "115", "type": "SPORT", "teacher": "Рахметов Д." }
+    ]
+  },
+  {
+    "day": "Вторник",
+    "dayCode": "tue",
+    "lessons": [
+      { "id": "sch-6", "time": "08:30 - 09:15", "subject": "Физика (Лабораторная)", "room": "208", "type": "LESSON", "teacher": "Тұрсынов Б." },
+      { "id": "sch-7", "time": "09:25 - 10:10", "subject": "Химия & Биология", "room": "214", "type": "LESSON", "teacher": "Әбдірахманова Д." },
+      { "id": "sch-8", "time": "10:25 - 11:10", "subject": "Казахский язык и литература", "room": "218", "type": "LESSON", "teacher": "Оразалиева Ш." },
+      { "id": "sch-9", "time": "11:20 - 12:00", "subject": "Обед и отдых", "room": "110", "type": "BREAK", "teacher": "Столовая" },
+      { "id": "sch-10", "time": "12:15 - 13:00", "subject": "Робототехника WRO", "room": "301", "type": "CLUB", "teacher": "Жұмағалиев Ә." }
+    ]
+  },
+  {
+    "day": "Среда",
+    "dayCode": "wed",
+    "lessons": [
+      { "id": "sch-11", "time": "08:30 - 09:15", "subject": "Геометрия", "room": "204", "type": "LESSON", "teacher": "Қайырбеков Н." },
+      { "id": "sch-12", "time": "09:25 - 10:10", "subject": "Английский язык (IELTS)", "room": "222", "type": "LESSON", "teacher": "Смағұлов Е." },
+      { "id": "sch-13", "time": "10:25 - 11:10", "subject": "История Казахстана", "room": "201", "type": "LESSON", "teacher": "Қасымов А." },
+      { "id": "sch-14", "time": "11:20 - 12:00", "subject": "Обед", "room": "110", "type": "BREAK", "teacher": "Столовая" },
+      { "id": "sch-15", "time": "13:00 - 15:00", "subject": "Свободное окно / Подготовка", "room": "315", "type": "FREE", "teacher": "Медиатека" }
+    ]
+  },
+  {
+    "day": "Четверг",
+    "dayCode": "thu",
+    "lessons": [
+      { "id": "sch-16", "time": "08:30 - 09:15", "subject": "Python & Data Science", "room": "205", "type": "LESSON", "teacher": "Ибраев С." },
+      { "id": "sch-17", "time": "09:25 - 10:10", "subject": "Физика (Оптика)", "room": "208", "type": "LESSON", "teacher": "Тұрсынов Б." },
+      { "id": "sch-18", "time": "10:25 - 11:10", "subject": "Русский язык (Практикум)", "room": "222", "type": "LESSON", "teacher": "Смағұлов Е." },
+      { "id": "sch-19", "time": "11:20 - 12:00", "subject": "Перерыв", "room": "110", "type": "BREAK", "teacher": "Столовая" },
+      { "id": "sch-20", "time": "12:15 - 13:00", "subject": "Дебатный клуб TEDx", "room": "320", "type": "CLUB", "teacher": "Координатор" }
+    ]
+  },
+  {
+    "day": "Пятница",
+    "dayCode": "fri",
+    "lessons": [
+      { "id": "sch-21", "time": "08:30 - 09:15", "subject": "Высшая математика", "room": "204", "type": "LESSON", "teacher": "Қайырбеков Н." },
+      { "id": "sch-22", "time": "09:25 - 10:10", "subject": "Астрономия & Космонавтика", "room": "417", "type": "LESSON", "teacher": "Сейітов К." },
+      { "id": "sch-23", "time": "10:25 - 11:10", "subject": "Волейбол & Гимнастика", "room": "115", "type": "SPORT", "teacher": "Рахметов Д." },
+      { "id": "sch-24", "time": "11:20 - 12:00", "subject": "Обед", "room": "110", "type": "BREAK", "teacher": "Столовая" },
+      { "id": "sch-25", "time": "12:15 - 13:00", "subject": "Кураторский час & Рефлексия", "room": "315", "type": "LESSON", "teacher": "Нұрғалиева Ж." }
+    ]
+  }
+]

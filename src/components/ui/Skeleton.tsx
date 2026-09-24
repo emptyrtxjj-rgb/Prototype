@@ -1,0 +1,20 @@
+import React from 'react';
+import { clsx } from 'clsx';
+import { twMerge } from 'tailwind-merge';
+
+export const Skeleton: React.FC<React.HTMLAttributes<HTMLDivElement>> = ({
+  className,
+  ...props
+}) => {
+  return (
+    <div
+      className={twMerge(clsx(
+        'animate-pulse rounded-md bg-slate-800/60 relative overflow-hidden',
+        'after:absolute after:inset-0 after:-translate-x-full after:animate-[shimmer_2s_infinite]',
+        'after:bg-gradient-to-r after:from-transparent after:via-slate-700/20 after:to-transparent',
+        className
+      ))}
+      {...props}
+    />
+  );
+};

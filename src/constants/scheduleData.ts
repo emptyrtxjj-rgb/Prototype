@@ -1,0 +1,286 @@
+import { ScheduleItem } from '../types';
+
+export const initialSchedule: ScheduleItem[] = [
+  // Monday
+  {
+    id: 'SCH-01',
+    dayOfWeek: 'Mon',
+    dayIndex: 0,
+    timeSlot: '08:30 - 09:15',
+    periodIndex: 1,
+    subjectKk: 'Жоғары математика (Алгебра)',
+    subjectRu: 'Высшая математика (Алгебра)',
+    roomNumber: '305',
+    teacher: 'Қайырбеков Н.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'blue'
+  },
+  {
+    id: 'SCH-02',
+    dayOfWeek: 'Mon',
+    dayIndex: 0,
+    timeSlot: '09:25 - 10:10',
+    periodIndex: 2,
+    subjectKk: 'Физика (Практикум)',
+    subjectRu: 'Физика (Практикум)',
+    roomNumber: '208',
+    teacher: 'Тұрсынов Б.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'cyan'
+  },
+  {
+    id: 'SCH-03',
+    dayOfWeek: 'Mon',
+    dayIndex: 0,
+    timeSlot: '10:25 - 11:10',
+    periodIndex: 3,
+    subjectKk: 'Қазақ тілі мен әдебиеті',
+    subjectRu: 'Казахский язык и литература',
+    roomNumber: '218',
+    teacher: 'Оразалиева Ш.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'emerald'
+  },
+  {
+    id: 'SCH-04',
+    dayOfWeek: 'Mon',
+    dayIndex: 0,
+    timeSlot: '11:20 - 12:05',
+    periodIndex: 4,
+    subjectKk: 'Ағылшын тілі (IELTS Academic)',
+    subjectRu: 'Английский язык (IELTS Academic)',
+    roomNumber: '222',
+    teacher: 'Смағұлов Е.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'violet'
+  },
+  {
+    id: 'SCH-05',
+    dayOfWeek: 'Mon',
+    dayIndex: 0,
+    timeSlot: '12:15 - 13:00',
+    periodIndex: 5,
+    subjectKk: 'Информатика және AI',
+    subjectRu: 'Информатика и AI',
+    roomNumber: '205',
+    teacher: 'Ибраев С.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'cyan'
+  },
+
+  // Tuesday
+  {
+    id: 'SCH-06',
+    dayOfWeek: 'Tue',
+    dayIndex: 1,
+    timeSlot: '08:30 - 09:15',
+    periodIndex: 1,
+    subjectKk: 'Химия зертханасы',
+    subjectRu: 'Химия (Лабораторная работа)',
+    roomNumber: '214',
+    teacher: 'Әбдірахманова Д.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'emerald'
+  },
+  {
+    id: 'SCH-07',
+    dayOfWeek: 'Tue',
+    dayIndex: 1,
+    timeSlot: '09:25 - 10:10',
+    periodIndex: 2,
+    subjectKk: 'Биология және Генетика',
+    subjectRu: 'Биология и Генетика',
+    roomNumber: '214',
+    teacher: 'Әбдірахманова Д.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'emerald'
+  },
+  {
+    id: 'SCH-08',
+    dayOfWeek: 'Tue',
+    dayIndex: 1,
+    timeSlot: '10:25 - 11:10',
+    periodIndex: 3,
+    subjectKk: 'Дене шынықтыру (Спорт)',
+    subjectRu: 'Физическая культура (Спорт)',
+    roomNumber: '115',
+    teacher: 'Рахметов Д.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'amber'
+  },
+  {
+    id: 'SCH-09',
+    dayOfWeek: 'Tue',
+    dayIndex: 1,
+    timeSlot: '11:20 - 12:05',
+    periodIndex: 4,
+    subjectKk: 'Дүниежүзі тарихы',
+    subjectRu: 'Всемирная история',
+    roomNumber: '101',
+    teacher: 'Қасымов А.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'blue'
+  },
+
+  // Wednesday
+  {
+    id: 'SCH-10',
+    dayOfWeek: 'Wed',
+    dayIndex: 2,
+    timeSlot: '08:30 - 09:15',
+    periodIndex: 1,
+    subjectKk: 'Жоғары математика (Геометрия)',
+    subjectRu: 'Высшая математика (Геометрия)',
+    roomNumber: '305',
+    teacher: 'Қайырбеков Н.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'blue'
+  },
+  {
+    id: 'SCH-11',
+    dayOfWeek: 'Wed',
+    dayIndex: 2,
+    timeSlot: '09:25 - 10:10',
+    periodIndex: 2,
+    subjectKk: 'Информатика (Python Data Science)',
+    subjectRu: 'Информатика (Python Data Science)',
+    roomNumber: '205',
+    teacher: 'Ибраев С.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'cyan'
+  },
+  {
+    id: 'SCH-12',
+    dayOfWeek: 'Wed',
+    dayIndex: 2,
+    timeSlot: '10:25 - 11:10',
+    periodIndex: 3,
+    subjectKk: 'Қазақ әдебиеті',
+    subjectRu: 'Казахская литература',
+    roomNumber: '218',
+    teacher: 'Оразалиева Ш.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'emerald'
+  },
+  {
+    id: 'SCH-13',
+    dayOfWeek: 'Wed',
+    dayIndex: 2,
+    timeSlot: '11:20 - 12:05',
+    periodIndex: 4,
+    subjectKk: 'Орыс тілі мен әдебиеті',
+    subjectRu: 'Русский язык и литература',
+    roomNumber: '222',
+    teacher: 'Смағұлов Е.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'violet'
+  },
+
+  // Thursday
+  {
+    id: 'SCH-14',
+    dayOfWeek: 'Thu',
+    dayIndex: 3,
+    timeSlot: '08:30 - 09:15',
+    periodIndex: 1,
+    subjectKk: 'Робототехника & Автоматика',
+    subjectRu: 'Робототехника и Автоматика',
+    roomNumber: '301',
+    teacher: 'Жұмағалиев Ә.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'cyan'
+  },
+  {
+    id: 'SCH-15',
+    dayOfWeek: 'Thu',
+    dayIndex: 3,
+    timeSlot: '09:25 - 10:10',
+    periodIndex: 2,
+    subjectKk: 'Физика (Оптика мен Квант)',
+    subjectRu: 'Физика (Оптика и Квантовая физика)',
+    roomNumber: '208',
+    teacher: 'Тұрсынов Б.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'cyan'
+  },
+  {
+    id: 'SCH-16',
+    dayOfWeek: 'Thu',
+    dayIndex: 3,
+    timeSlot: '10:25 - 11:10',
+    periodIndex: 3,
+    subjectKk: 'Ағылшын тілі (Speaking Club)',
+    subjectRu: 'Английский язык (Speaking Club)',
+    roomNumber: '222',
+    teacher: 'Смағұлов Е.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'violet'
+  },
+  {
+    id: 'SCH-17',
+    dayOfWeek: 'Thu',
+    dayIndex: 3,
+    timeSlot: '11:20 - 12:05',
+    periodIndex: 4,
+    subjectKk: 'Математикалық талдау',
+    subjectRu: 'Математический анализ',
+    roomNumber: '305',
+    teacher: 'Қайырбеков Н.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'blue'
+  },
+
+  // Friday
+  {
+    id: 'SCH-18',
+    dayOfWeek: 'Fri',
+    dayIndex: 4,
+    timeSlot: '08:30 - 09:15',
+    periodIndex: 1,
+    subjectKk: 'Қазақстан тарихы',
+    subjectRu: 'История Казахстана',
+    roomNumber: '218',
+    teacher: 'Оразалиева Ш.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'emerald'
+  },
+  {
+    id: 'SCH-19',
+    dayOfWeek: 'Fri',
+    dayIndex: 4,
+    timeSlot: '09:25 - 10:10',
+    periodIndex: 2,
+    subjectKk: 'Орыс тілі (Эссе жазу)',
+    subjectRu: 'Русский язык (Практикум эссе)',
+    roomNumber: '222',
+    teacher: 'Смағұлов Е.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'violet'
+  },
+  {
+    id: 'SCH-20',
+    dayOfWeek: 'Fri',
+    dayIndex: 4,
+    timeSlot: '10:25 - 11:10',
+    periodIndex: 3,
+    subjectKk: 'Дене шынықтыру (Командалық ойындар)',
+    subjectRu: 'Физическая культура (Игровой день)',
+    roomNumber: '115',
+    teacher: 'Рахметов Д.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'amber'
+  },
+  {
+    id: 'SCH-21',
+    dayOfWeek: 'Fri',
+    dayIndex: 4,
+    timeSlot: '11:20 - 12:05',
+    periodIndex: 4,
+    subjectKk: 'Академиялық кеңес & Кураторлық сағат',
+    subjectRu: 'Кураторский час и рефлексия',
+    roomNumber: '315',
+    teacher: 'Нұрғалиева Ж.',
+    gradeGroup: '11 «А»',
+    colorScheme: 'blue'
+  }
+];

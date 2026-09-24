@@ -1,0 +1,80 @@
+import { apiRequest } from './api';
+
+export interface AnnouncementItem {
+  id: string;
+  title: string;
+  category: 'academic' | 'health' | 'eco' | 'tech' | 'culture';
+  date: string;
+  time: string;
+  location: string;
+  roomNumber: string;
+  priority: 'low' | 'medium' | 'high';
+  description: string;
+}
+
+export const announcementService = {
+  async getAnnouncements(): Promise<AnnouncementItem[]> {
+    try {
+      const res = await apiRequest<{ success: boolean; data: AnnouncementItem[] }>('/announcements');
+      return res.data;
+    } catch {
+      return [
+        {
+          id: 'ANN-01',
+          title: 'Олимпиада по математике (Отборочный тур)',
+          category: 'academic',
+          date: '24 сентября',
+          time: '14:30',
+          location: 'Кабинет 301',
+          roomNumber: '301',
+          priority: 'high',
+          description: 'Городской этап олимпиады по высшей математике. Приглашаются ученики 9-11 классов. С собой иметь калькулятор Casio и удостоверение.'
+        },
+        {
+          id: 'ANN-02',
+          title: 'Плановый медицинский осмотр',
+          category: 'health',
+          date: '25 сентября',
+          time: '09:00 - 12:00',
+          location: 'Медпункт (Каб. 102)',
+          roomNumber: '102',
+          priority: 'medium',
+          description: 'Ежегодный скрининг здоровья: проверка зрения, осанки и кардиограммы для 10-11 классов. Присутствие обязательно.'
+        },
+        {
+          id: 'ANN-03',
+          title: 'Школьная экологическая акция «Таза Қазақстан»',
+          category: 'eco',
+          date: '27 сентября',
+          time: '12:30',
+          location: 'Главный школьный двор',
+          roomNumber: '110',
+          priority: 'high',
+          description: 'Сбор макулатуры, сдача старых батареек и высадка хвойных деревьев в саду школы. Участники получают Eco-XP!'
+        },
+        {
+          id: 'ANN-04',
+          title: 'Хакатон по робототехнике и FPV-дронам',
+          category: 'tech',
+          date: '29 сентября',
+          time: '11:00',
+          location: 'Робототехника (Каб. 301)',
+          roomNumber: '301',
+          priority: 'high',
+          description: 'Командные соревнования по программированию беспилотных аппаратов и автономному преодолению препятствий.'
+        },
+        {
+          id: 'ANN-05',
+          title: 'IELTS Academic Speaking Marathon',
+          category: 'academic',
+          date: '30 сентября',
+          time: '15:00',
+          location: 'Language Hub (Каб. 222)',
+          roomNumber: '222',
+          priority: 'low',
+          description: 'Интенсивная практика устной части экзамена с носителями языка и международными тьюторами.'
+        }
+      ];
+    }
+  }
+};
