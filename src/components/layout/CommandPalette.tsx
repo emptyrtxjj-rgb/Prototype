@@ -55,7 +55,7 @@ export const CommandPalette: React.FC = () => {
       // Navigation
       {
         id: 'nav-dashboard',
-        title: language === 'kk' ? 'Бақылау тақтасы (Дашборд)' : 'Панель управления (Дашборд)',
+        title: language === 'kk' ? 'Құзыреттер матрицасы & Оқушы кабинеті' : 'Матрица компетенций и Кабинет ученика',
         category: language === 'kk' ? 'Бөлімдер' : 'Разделы',
         icon: <Layers className="w-4 h-4 text-cyan-400" />,
         action: () => { navigate('/dashboard'); setCommandPaletteOpen(false); },
@@ -79,7 +79,7 @@ export const CommandPalette: React.FC = () => {
       },
       {
         id: 'nav-mentor',
-        title: language === 'kk' ? 'AI Академиялық Ментор (IELTS/Эссе)' : 'AI Академический Ментор (IELTS/Эссе)',
+        title: language === 'kk' ? 'AI Академиялық Ментор & Зерттеулер' : 'AI Академический Ментор и Исследования',
         category: language === 'kk' ? 'Бөлімдер' : 'Разделы',
         icon: <Sparkles className="w-4 h-4 text-purple-400" />,
         action: () => { navigate('/mentor'); setCommandPaletteOpen(false); },
@@ -95,19 +95,11 @@ export const CommandPalette: React.FC = () => {
       },
       {
         id: 'nav-lostfound',
-        title: language === 'kk' ? 'Цифрлық Бюро находок' : 'Цифровое Бюро находок',
+        title: language === 'kk' ? 'Табылған заттар бюросы' : 'Бюро находок школы',
         category: language === 'kk' ? 'Бөлімдер' : 'Разделы',
         icon: <FileBox className="w-4 h-4 text-emerald-400" />,
         action: () => { navigate('/lost-found'); setCommandPaletteOpen(false); },
         badge: 'Items'
-      },
-      {
-        id: 'nav-eco',
-        title: language === 'kk' ? 'Eco-Monitor & Қағаз үнемдеу' : 'Eco-Monitor & Эко-баланс',
-        category: language === 'kk' ? 'Бөлімдер' : 'Разделы',
-        icon: <Leaf className="w-4 h-4 text-emerald-400" />,
-        action: () => { navigate('/eco'); setCommandPaletteOpen(false); },
-        badge: 'Eco'
       },
       {
         id: 'nav-activity',
