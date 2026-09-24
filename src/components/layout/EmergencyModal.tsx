@@ -9,7 +9,9 @@ import {
   PhoneIncoming, 
   Building, 
   Cpu, 
-  ExternalLink 
+  ExternalLink,
+  MapPin,
+  ShieldCheck
 } from 'lucide-react';
 import { Badge } from '../ui/Badge';
 
@@ -105,7 +107,8 @@ export const EmergencyModal: React.FC = () => {
                     </span>
                   </div>
                   <p className="text-xs text-stone-600 mt-1 flex items-center gap-1.5 font-sans">
-                    📍 <span>{h.desk}</span>
+                    <MapPin className="w-3.5 h-3.5 text-[#7A1526]" />
+                    <span>{h.desk}</span>
                   </p>
                 </div>
               </div>
@@ -121,8 +124,11 @@ export const EmergencyModal: React.FC = () => {
           </div>
         ))}
 
-        <div className="p-3.5 rounded-xl bg-[#FAF8F5] border border-stone-200 text-xs text-stone-600 leading-relaxed font-sans">
-          💡 <span className="font-semibold text-stone-900">Регламент:</span> Қауіп төнген жағдайда алдымен 1-қабаттағы күзет бекетіне хабарласыңыз немесе «111» желісіне қоңырау шалыңыз. Барлық сөйлесулер оқушылардың қауіпсіздігі үшін қорғалған.
+        <div className="p-3.5 rounded-xl bg-[#FAF8F5] border border-stone-200 text-xs text-stone-600 leading-relaxed font-sans flex items-start gap-2">
+          <ShieldCheck className="w-4 h-4 text-[#7A1526] shrink-0 mt-0.5" />
+          <div>
+            <span className="font-semibold text-stone-900">Регламент безопасности:</span> Қауіп төнген жағдайда алдымен 1-қабаттағы күзет бекетіне хабарласыңыз немесе «111» желісіне қоңырау шалыңыз. Барлық сөйлесулер оқушылардың қауіпсіздігі үшін қорғалған.
+          </div>
         </div>
       </div>
     </Modal>

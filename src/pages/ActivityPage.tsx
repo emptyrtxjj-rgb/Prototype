@@ -19,7 +19,10 @@ import {
   Heart,
   ChevronRight,
   ShieldCheck,
-  Award
+  Award,
+  User,
+  Clock,
+  MapPin
 } from 'lucide-react';
 import { useApp } from '../context/AppContext';
 import confetti from 'canvas-confetti';
@@ -174,7 +177,7 @@ export const ActivityPage: React.FC = () => {
     setWaterMl(prev => {
       const next = Math.max(0, Math.min(3500, prev + amount));
       if (next >= waterGoal && prev < waterGoal) {
-        addToast('Цель достигнута! 💧', 'Вы выпили 2.0 литра воды сегодня. Превосходный уровень гидратации!', 'success');
+        addToast('Цель достигнута! Оптимальная гидратация', 'Вы выпили 2.0 литра чистой воды сегодня. Превосходный уровень физической формы!', 'success');
         try {
           confetti({ particleCount: 50, spread: 80, origin: { y: 0.5 } });
         } catch { /* noop */ }
@@ -565,9 +568,18 @@ export const ActivityPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-1.5 text-xs text-stone-600 font-sans pt-1">
-                  <p>👤 <span className="font-medium text-stone-800">{club.coach}</span></p>
-                  <p>⏰ <span>{club.schedule}</span></p>
-                  <p>📍 <span>{club.room}</span></p>
+                  <p className="flex items-center gap-1.5">
+                    <User className="w-3.5 h-3.5 text-[#7A1526]" />
+                    <span className="font-medium text-stone-800">{club.coach}</span>
+                  </p>
+                  <p className="flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-stone-500" />
+                    <span>{club.schedule}</span>
+                  </p>
+                  <p className="flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-[#7A1526]" />
+                    <span>{club.room}</span>
+                  </p>
                 </div>
               </div>
 

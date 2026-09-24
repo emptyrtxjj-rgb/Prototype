@@ -45,7 +45,7 @@ export const DashboardPage: React.FC = () => {
             </span>
           </div>
           <h1 className="text-2xl sm:text-4xl font-serif font-bold text-[#1C1F23]">
-            Қайырлы күн, Әмина! 👋
+            Қайырлы күн, Әмина!
           </h1>
           <p className="text-xs sm:text-sm text-stone-600">
             Бүгінгі күнге: <strong className="text-[#7A1526] font-mono">3 сабақ</strong>, <strong className="text-stone-800 font-mono">1 үйірме</strong>, <strong className="text-emerald-700 font-mono">2 бос терезе</strong> жоспарланған.
@@ -202,8 +202,9 @@ export const DashboardPage: React.FC = () => {
                     <span className="text-xs font-mono font-bold text-[#7A1526] bg-[#7A1526]/10 px-2 py-0.5 rounded border border-[#7A1526]/20">
                       {ann.date} • {ann.time}
                     </span>
-                    <span className="text-[10px] font-mono text-stone-500">
-                      📍 {ann.location}
+                    <span className="text-[10px] font-mono text-stone-500 flex items-center gap-1">
+                      <MapPin className="w-3 h-3 text-[#7A1526]" />
+                      <span>{ann.location}</span>
                     </span>
                   </div>
                   <h4 className="text-sm font-semibold text-[#1C1F23]">
@@ -243,8 +244,9 @@ export const DashboardPage: React.FC = () => {
           </div>
 
           <div className="space-y-2 pt-2">
-            <div className="p-3 rounded-xl bg-[#FAF8F5] border border-stone-200 text-[11px] font-mono text-stone-700">
-              🎯 Мақсатты балл: Band 7.0+ / 9.0
+            <div className="p-3 rounded-xl bg-[#FAF8F5] border border-stone-200 text-[11px] font-mono text-stone-700 flex items-center gap-1.5">
+              <Award className="w-3.5 h-3.5 text-[#C5A059]" />
+              <span>Мақсатты балл: Band 7.0+ / 9.0</span>
             </div>
             <Link
               to="/mentor"

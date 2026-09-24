@@ -10,7 +10,9 @@ import {
   Bot, 
   Sliders, 
   Info,
-  BookOpen
+  BookOpen,
+  User,
+  Lightbulb
 } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -135,8 +137,9 @@ export const SchedulePage: React.FC = () => {
                     {generationResult.message}
                   </p>
                   {generationResult.compromise && (
-                    <p className="text-xs text-amber-900 font-mono mt-1 font-semibold">
-                      💡 {generationResult.compromise}
+                    <p className="text-xs text-amber-900 font-mono mt-1 font-semibold flex items-center gap-1.5">
+                      <Lightbulb className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                      <span>{generationResult.compromise}</span>
                     </p>
                   )}
                 </div>
@@ -230,8 +233,9 @@ export const SchedulePage: React.FC = () => {
                         <h5 className="font-bold text-xs leading-snug">
                           {lesson.subject}
                         </h5>
-                        <p className="text-[10px] mt-1 font-mono text-stone-600">
-                          👤 {lesson.teacher}
+                        <p className="text-[10px] mt-1 font-mono text-stone-600 flex items-center gap-1">
+                          <User className="w-3 h-3 text-[#7A1526]" />
+                          <span>{lesson.teacher}</span>
                         </p>
                       </div>
                     );
