@@ -45,12 +45,25 @@ interface AppContextType {
 const AppContext = createContext<AppContextType | undefined>(undefined);
 
 export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('ru'); // default Russian for hackathon jury readability, easily switchable to KK
+  const [language, setLanguageState] = useState<Language>(() => {
+    const saved = localStorage.getItem('smart_school_lang');
+    return (saved as Language) || 'kk';
+  });
   const [role, setRole] = useState<UserRole>('student');
   const [theme, setThemeState] = useState<Theme>(() => {
     const saved = localStorage.getItem('smart_school_theme');
-    return (saved as Theme) || 'dark';
+    return (saved as Theme) || 'light';
   });
+
+  const setLanguage = (lang: Language) => {
+    setLanguageState(lang);
+    localStorage.setItem('smart_school_lang', lang);
+    document.documentElement.lang = lang;
+  };
+
+  useEffect(() => {
+    document.documentElement.lang = language;
+  }, [language]);
   const [isCommandPaletteOpen, setCommandPaletteOpen] = useState<boolean>(false);
   const [isEmergencyOpen, setEmergencyOpen] = useState<boolean>(false);
   const [selectedRoomForNav, setSelectedRoomForNav] = useState<string | null>(null);

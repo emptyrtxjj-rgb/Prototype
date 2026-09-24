@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useLocation, Navigate } from 'react-router-dom';
 import { AppProvider } from './context/AppContext';
 import { Navbar } from './components/layout/Navbar';
 import { Footer } from './components/layout/Footer';
@@ -10,7 +10,6 @@ import { ToastContainer } from './components/ui/Toast';
 // Pages
 import { HomePage } from './pages/HomePage';
 import { DashboardPage } from './pages/DashboardPage';
-import { NavigationPage } from './pages/NavigationPage';
 import { SchedulePage } from './pages/SchedulePage';
 import { MentorPage } from './pages/MentorPage';
 import { AnnouncementsPage } from './pages/AnnouncementsPage';
@@ -49,7 +48,7 @@ const MainLayout: React.FC = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
-          <Route path="/navigation" element={<NavigationPage />} />
+          <Route path="/navigation" element={<Navigate to="/dashboard" replace />} />
           <Route path="/schedule" element={<SchedulePage />} />
           <Route path="/mentor" element={<MentorPage />} />
           <Route path="/announcements" element={<AnnouncementsPage />} />

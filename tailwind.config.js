@@ -54,7 +54,9 @@ export default {
         }
       },
       fontFamily: {
-        serif: ['Cormorant Garamond', 'PT Serif', 'Lora', 'Playfair Display', 'Georgia', 'serif'],
+        climate: ['"Climate Crisis"', 'cursive', 'sans-serif'],
+        pixel: ['"Press Start 2P"', 'monospace'],
+        serif: ['Cormorant Garamond', 'PT Serif', 'Lora', 'Georgia', 'serif'],
         sans: ['Inter', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         space: ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
         mono: ['JetBrains Mono', 'ui-monospace', 'monospace'],

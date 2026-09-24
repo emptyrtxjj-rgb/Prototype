@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink, Link, useNavigate } from 'react-router-dom';
+import { NavLink, Link, useNavigate, useLocation } from 'react-router-dom';
 import { useApp } from '../../context/AppContext';
 import { AcademicCrest } from '../common/AcademicCrest';
 import { 
@@ -9,10 +9,13 @@ import {
   ChevronDown,
   ArrowRight,
   Globe,
-  Compass,
   Calendar,
   Sparkles,
-  LifeBuoy
+  BookOpen,
+  LifeBuoy,
+  Leaf,
+  ShieldCheck,
+  UserCheck
 } from 'lucide-react';
 
 export const Navbar: React.FC = () => {
@@ -20,7 +23,7 @@ export const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
-  const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -30,20 +33,23 @@ export const Navbar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const primaryLeftLinks = [
-    { to: '/', label: 'Home' },
+  const isKz = language === 'kk';
+
+  const navLinks = [
+    { to: '/', label: isKz ? 'Басты бет' : 'Главная' },
     { 
-      label: 'Academics', 
+      label: isKz ? 'Kundelik LMS' : 'Дневник LMS', 
       isDropdown: true,
       items: [
-        { to: '/dashboard', label: 'Академический дашборд' },
-        { to: '/navigation', label: '3D Карта кампуса' },
-        { to: '/schedule', label: 'Умное расписание' },
-        { to: '/mentor', label: 'AI Ментор (IELTS/Эссе)' },
+        { to: '/dashboard', label: isKz ? 'Оқушы кабинеті & Бағалар' : 'Кабинет ученика и Оценки' },
+        { to: '/schedule', label: isKz ? 'Интерактивті сабақ кестесі' : 'Умное расписание уроков' },
+        { to: '/mentor', label: isKz ? 'AI Академиялық Ментор' : 'AI Академический Ментор' },
+        { to: '/eco', label: isKz ? '11-сынып Эко-мониторингі' : 'Эко-мониторинг 11 класса' },
       ]
     },
-    { to: '/announcements', label: 'Event & News' },
-    { to: '/help', label: 'Contact' }
+    { to: '/announcements', label: isKz ? 'Жаңалықтар & Олимпиадалар' : 'Новости и Олимпиады' },
+    { to: '/help', label: isKz ? 'Служба көмек (111)' : 'Служба помощи (111)' },
+    { to: '/about', label: isKz ? 'Платформа туралы' : 'О платформе' }
   ];
 
   return (
@@ -55,9 +61,9 @@ export const Navbar: React.FC = () => {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Left Column: Navigation Links with Carets */}
-        <nav className="hidden lg:flex items-center gap-7">
-          {primaryLeftLinks.map((item, idx) => {
+        {/* Left Column: Navigation Links */}
+        <nav className="hidden lg:flex items-center gap-6">
+          {navLinks.map((item, idx) => {
             if (item.isDropdown) {
               return (
                 <div 
@@ -66,14 +72,14 @@ export const Navbar: React.FC = () => {
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
-                  <button className="flex items-center gap-1 text-[13px] font-medium text-stone-700 hover:text-[#7A1526] transition-colors py-2">
+                  <button className="flex items-center gap-1 text-[13px] font-medium text-stone-700 hover:text-[#7A1526] transition-colors py-2 font-sans">
                     <span>{item.label}</span>
                     <ChevronDown className="w-3.5 h-3.5 text-stone-400 group-hover:text-[#7A1526] transition-transform group-hover:rotate-180" />
                   </button>
 
                   {/* Dropdown Menu */}
                   {dropdownOpen && (
-                    <div className="absolute top-full left-0 w-64 bg-white rounded-xl shadow-xl border border-stone-200/90 py-2 animate-academic-fade z-50">
+                    <div className="absolute top-full left-0 w-64 bg-white rounded-xl shadow-xl border border-stone-200/90 py-2 animate-academic-fade z-50 font-sans">
                       {item.items?.map((sub, sIdx) => (
                         <Link
                           key={sIdx}
@@ -95,7 +101,7 @@ export const Navbar: React.FC = () => {
                 key={idx}
                 to={item.to || '/'}
                 className={({ isActive }) =>
-                  `text-[13px] font-medium transition-colors ${
+                  `text-[13px] font-medium transition-colors font-sans ${
                     isActive
                       ? 'text-[#7A1526] font-semibold'
                       : 'text-stone-700 hover:text-[#7A1526]'
@@ -108,46 +114,64 @@ export const Navbar: React.FC = () => {
           })}
         </nav>
 
-        {/* Center Column: Academic Crest & Wordmark (matches template center logo) */}
+        {/* Center Column: National Emblem Crest & Wordmark */}
         <div className="flex items-center justify-center">
           <Link to="/" className="flex items-center gap-3 group">
-            <AcademicCrest size={44} className="group-hover:scale-105 transition-transform" />
+            <AcademicCrest size={42} className="group-hover:scale-105 transition-transform" />
             <div className="text-left">
               <div className="font-serif font-bold text-lg sm:text-xl tracking-tight text-[#1C1F23] leading-none group-hover:text-[#7A1526] transition-colors">
-                SMART SCHOOL
+                KUNDELIK KZ
               </div>
-              <div className="text-[10px] font-mono tracking-widest text-[#7A1526] font-semibold uppercase mt-0.5">
-                KZ • ACADEMIA 2026
+              <div className="font-pixel text-[8px] tracking-wider text-[#C5A059] mt-0.5">
+                SMART MEKTEP HUB 2026
               </div>
             </div>
           </Link>
         </div>
 
-        {/* Right Column: Search, Language, Portal Crimson Button */}
+        {/* Right Column: Search, Language Switcher [KZ | RU], Portal Button */}
         <div className="flex items-center gap-3">
           {/* Quick Search Trigger */}
           <button
             onClick={() => setCommandPaletteOpen(true)}
             className="p-2 rounded-full hover:bg-stone-100 text-stone-600 hover:text-[#7A1526] transition-colors"
-            title="Search (⌘K)"
+            title="Іздеу / Поиск (⌘K)"
           >
             <Search className="w-4 h-4" />
           </button>
 
-          {/* Language Switch */}
-          <button
-            onClick={() => setLanguage(language === 'ru' ? 'kk' : 'ru')}
-            className="px-2.5 py-1 text-xs font-mono font-medium rounded border border-stone-200 text-stone-700 hover:border-[#7A1526] hover:text-[#7A1526] transition-colors"
-          >
-            {language.toUpperCase()}
-          </button>
+          {/* DEDICATED LANGUAGE SWITCHER BUTTON: KZ | RU */}
+          <div className="flex items-center p-0.5 rounded-full bg-stone-100 border border-stone-200 shadow-inner">
+            <button
+              onClick={() => setLanguage('kk')}
+              className={`px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-200 ${
+                isKz
+                  ? 'bg-[#7A1526] text-white shadow-xs font-bold'
+                  : 'text-stone-600 hover:text-stone-900'
+              }`}
+              title="Қазақ тіліне ауыстыру"
+            >
+              KZ
+            </button>
+            <button
+              onClick={() => setLanguage('ru')}
+              className={`px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-200 ${
+                !isKz
+                  ? 'bg-[#7A1526] text-white shadow-xs font-bold'
+                  : 'text-stone-600 hover:text-stone-900'
+              }`}
+              title="Переключить на русский язык"
+            >
+              RU
+            </button>
+          </div>
 
-          {/* Crimson Pill Action Button */}
+          {/* Crimson Pill Action Button: LMS Entry */}
           <Link
             to="/dashboard"
-            className="hidden sm:inline-flex btn-crimson text-xs py-2 px-5"
+            className="hidden sm:inline-flex btn-crimson text-xs py-2 px-5 whitespace-nowrap font-sans"
           >
-            <span>Порталға кіру</span>
+            <span>{isKz ? 'Порталға кіру' : 'Войти в систему'}</span>
             <ArrowRight className="w-3.5 h-3.5 ml-1" />
           </Link>
 
@@ -164,74 +188,46 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-stone-200 bg-white px-5 pt-4 pb-6 space-y-3 animate-academic-fade">
+        <div className="lg:hidden border-t border-stone-200 bg-white px-5 pt-4 pb-6 space-y-4 animate-academic-fade font-sans">
           <div className="flex items-center justify-between pb-3 border-b border-stone-100">
-            <button
-              onClick={() => { setCommandPaletteOpen(true); setMobileMenuOpen(false); }}
-              className="flex items-center gap-2 text-xs text-stone-600 bg-stone-50 px-3 py-2 rounded-lg border border-stone-200 w-full mr-2"
-            >
-              <Search className="w-3.5 h-3.5 text-stone-400" />
-              <span>Іздеу / Поиск (⌘K)...</span>
-            </button>
+            <div className="flex items-center gap-2">
+              <span className="text-xs text-stone-500 font-semibold">{isKz ? 'Тіл:' : 'Язык:'}</span>
+              <div className="flex items-center p-0.5 rounded-full bg-stone-100 border border-stone-200">
+                <button
+                  onClick={() => setLanguage('kk')}
+                  className={`px-2 py-0.5 text-xs font-bold rounded-full ${isKz ? 'bg-[#7A1526] text-white' : 'text-stone-600'}`}
+                >
+                  KZ
+                </button>
+                <button
+                  onClick={() => setLanguage('ru')}
+                  className={`px-2 py-0.5 text-xs font-bold rounded-full ${!isKz ? 'bg-[#7A1526] text-white' : 'text-stone-600'}`}
+                >
+                  RU
+                </button>
+              </div>
+            </div>
+
             <Link
               to="/dashboard"
               onClick={() => setMobileMenuOpen(false)}
               className="btn-crimson text-xs py-2 px-4 whitespace-nowrap"
             >
-              Кіру
+              {isKz ? 'Порталға кіру' : 'Войти'}
             </Link>
           </div>
 
-          <div className="space-y-1 pt-1">
-            <NavLink
-              to="/"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm text-stone-800 hover:bg-stone-50 font-medium"
-            >
-              Басты бет / Home
-            </NavLink>
-            <NavLink
-              to="/dashboard"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm text-stone-800 hover:bg-stone-50 font-medium"
-            >
-              Дашборд & Бағалар
-            </NavLink>
-            <NavLink
-              to="/navigation"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm text-stone-800 hover:bg-stone-50 font-medium"
-            >
-              3D Навигация кампуса
-            </NavLink>
-            <NavLink
-              to="/schedule"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm text-stone-800 hover:bg-stone-50 font-medium"
-            >
-              Сабақ кестесі
-            </NavLink>
-            <NavLink
-              to="/mentor"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm text-stone-800 hover:bg-stone-50 font-medium"
-            >
-              AI Академиялық Ментор
-            </NavLink>
-            <NavLink
-              to="/announcements"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm text-stone-800 hover:bg-stone-50 font-medium"
-            >
-              Хабарландырулар & Оқиғалар
-            </NavLink>
-            <NavLink
-              to="/help"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-2 rounded-lg text-sm text-stone-800 hover:bg-stone-50 font-medium"
-            >
-              Қабылдау & Көмек
-            </NavLink>
+          <div className="space-y-1">
+            {navLinks.map((item, idx) => (
+              <NavLink
+                key={idx}
+                to={item.to || '/dashboard'}
+                onClick={() => setMobileMenuOpen(false)}
+                className="block px-3 py-2 rounded-lg text-sm text-stone-800 hover:bg-stone-50 font-medium"
+              >
+                {item.label}
+              </NavLink>
+            ))}
           </div>
         </div>
       )}

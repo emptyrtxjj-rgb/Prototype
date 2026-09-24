@@ -62,11 +62,11 @@ export const CommandPalette: React.FC = () => {
         badge: 'Ctrl+1'
       },
       {
-        id: 'nav-navigator',
-        title: language === 'kk' ? '3D Интерактивті мектеп картасы' : '3D Интерактивная карта школы',
+        id: 'nav-eco',
+        title: language === 'kk' ? 'Эко-мониторинг & Қағазсыз мектеп' : 'Эко-мониторинг и зеленая школа',
         category: language === 'kk' ? 'Бөлімдер' : 'Разделы',
-        icon: <Compass className="w-4 h-4 text-blue-400" />,
-        action: () => { navigate('/navigation'); setCommandPaletteOpen(false); },
+        icon: <Compass className="w-4 h-4 text-emerald-400" />,
+        action: () => { navigate('/eco'); setCommandPaletteOpen(false); },
         badge: 'Ctrl+2'
       },
       {
@@ -161,16 +161,16 @@ export const CommandPalette: React.FC = () => {
       }
     ];
 
-    // Add all school rooms with instant 3D jump
+    // Add school rooms
     initialRooms.forEach(room => {
       list.push({
         id: `room-${room.number}`,
         title: `${room.number} — ${language === 'kk' ? room.nameKk : room.nameRu} (${room.floor}-${language === 'kk' ? 'қабат' : 'этаж'})`,
-        category: language === 'kk' ? 'Кабинеттер (3D Навигатор)' : 'Кабинеты (3D Навигатор)',
+        category: language === 'kk' ? 'Кабинеттер & Пәндер' : 'Кабинеты и дисциплины',
         icon: <MapPin className="w-4 h-4 text-cyan-400" />,
         action: () => {
           setSelectedRoomForNav(room.number);
-          navigate('/navigation');
+          navigate('/schedule');
           setCommandPaletteOpen(false);
         },
         badge: room.currentStatus.toUpperCase()

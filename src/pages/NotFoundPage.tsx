@@ -32,11 +32,11 @@ export const NotFoundPage: React.FC = () => {
           <span>На главную</span>
         </Link>
         <Link
-          to="/navigation"
+          to="/dashboard"
           className="btn-crimson-outline flex items-center gap-2 py-3 px-6 text-xs font-semibold uppercase tracking-wider"
         >
-          <Compass className="w-4 h-4" />
-          <span>3D Навигация</span>
+          <Layers className="w-4 h-4" />
+          <span>Электронды күнделік</span>
         </Link>
         <Link
           to="/help"
