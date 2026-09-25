@@ -94,7 +94,7 @@ export const EmergencyModal: React.FC = () => {
                 : 'bg-[#FAF8F5] border-stone-200 hover:border-stone-300'
             }`}
           >
-            <div className="flex items-start justify-between gap-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
               <div className="flex items-start gap-3">
                 <div className="p-2.5 rounded-lg bg-white border border-stone-200 shrink-0 mt-0.5 shadow-xs">
                   {h.icon}
@@ -115,7 +115,7 @@ export const EmergencyModal: React.FC = () => {
 
               <a
                 href={`tel:${h.phone.replace(/[^0-9+]/g, '')}`}
-                className="shrink-0 flex items-center gap-1.5 px-3.5 py-2 rounded-full bg-[#7A1526] hover:bg-[#901B30] text-white text-xs font-semibold shadow-xs transition-colors"
+                className="w-full sm:w-auto justify-center flex items-center gap-1.5 px-4 py-2.5 rounded-full bg-[#7A1526] hover:bg-[#901B30] text-white text-xs font-semibold shadow-xs transition-colors shrink-0"
               >
                 <PhoneCall className="w-3.5 h-3.5" />
                 <span>{h.phone}</span>

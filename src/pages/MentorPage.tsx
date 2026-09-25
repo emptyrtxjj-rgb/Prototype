@@ -386,10 +386,10 @@ export const MentorPage: React.FC = () => {
 
             {/* Popover Card for Selected Annotation */}
             {selectedAnnotation && (
-              <div className="p-5 rounded-2xl bg-white border-2 border-[#7A1526] shadow-xl space-y-3 animate-academic-fade relative">
+              <div className="p-4 sm:p-5 pr-9 sm:pr-10 rounded-2xl bg-white border-2 border-[#7A1526] shadow-xl space-y-3 animate-academic-fade relative">
                 <button
                   onClick={() => setSelectedAnnotation(null)}
-                  className="absolute top-4 right-4 text-stone-400 hover:text-stone-700"
+                  className="absolute top-3.5 sm:top-4 right-3.5 sm:right-4 text-stone-400 hover:text-stone-700 p-1"
                 >
                   <X className="w-4 h-4" />
                 </button>

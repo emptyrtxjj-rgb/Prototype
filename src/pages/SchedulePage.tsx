@@ -27,6 +27,7 @@ export const SchedulePage: React.FC = () => {
   const [scheduleData, setScheduleData] = useState<any[]>([]);
   const [generationResult, setGenerationResult] = useState<GeneratedScheduleResponse | null>(null);
   const [shiftedLessonIds, setShiftedLessonIds] = useState<Set<string>>(new Set());
+  const [activeMobileDay, setActiveMobileDay] = useState<number>(0);
 
   useEffect(() => {
     scheduleService.getSchedule().then((data: any[]) => setScheduleData(data));
@@ -281,7 +282,83 @@ export const SchedulePage: React.FC = () => {
           </div>
         </div>
 
-        <div className="overflow-x-auto">
+        {/* Mobile Day Selector Tabs (md:hidden) */}
+        <div className="md:hidden space-y-4">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 scrollbar-none">
+            {scheduleData.map((dayGroup, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActiveMobileDay(idx)}
+                className={`px-3.5 py-2 rounded-xl text-xs font-serif font-bold whitespace-nowrap shrink-0 transition-all ${
+                  activeMobileDay === idx
+                    ? 'bg-[#7A1526] text-white shadow-md'
+                    : 'bg-stone-100 text-stone-600 hover:bg-stone-200'
+                }`}
+              >
+                {dayGroup.day}
+              </button>
+            ))}
+          </div>
+
+          {scheduleData[activeMobileDay] && (
+            <div className="space-y-3">
+              <div className="flex items-center justify-between pb-2 border-b border-stone-200">
+                <h4 className="font-serif font-bold text-sm text-[#1C1F23]">
+                  {scheduleData[activeMobileDay].day}
+                </h4>
+                <span className="text-[10px] text-stone-500 font-mono">
+                  {scheduleData[activeMobileDay].lessons?.length || 5} {isKk ? 'академиялық сабақ' : 'уроков'}
+                </span>
+              </div>
+
+              <div className="space-y-2.5">
+                {scheduleData[activeMobileDay].lessons.map((lesson: any) => {
+                  const isShifted = shiftedLessonIds.has(lesson.id) || lesson.isShifted;
+                  const cardStyles: Record<string, string> = {
+                    LESSON: 'bg-white border-[#7A1526]/30 text-stone-900 shadow-sm border-l-4 border-l-[#7A1526]',
+                    BREAK: 'bg-emerald-50/70 border-emerald-200 text-emerald-950 border-l-4 border-l-emerald-600',
+                    SPORT: 'bg-amber-50/70 border-amber-200 text-amber-950 border-l-4 border-l-amber-600',
+                    CLUB: 'bg-purple-50/70 border-purple-200 text-purple-950 border-l-4 border-l-purple-600',
+                    FREE: 'bg-amber-50/80 border-amber-400 text-amber-950 border-l-4 border-l-amber-500 ring-2 ring-amber-300 ring-offset-1 animate-pulse',
+                  };
+
+                  return (
+                    <div
+                      key={lesson.id}
+                      className={`p-3.5 rounded-xl border ${cardStyles[lesson.type] || cardStyles.LESSON} transition-all relative overflow-hidden`}
+                    >
+                      {isShifted && (
+                        <div className="mb-1 flex items-center justify-between">
+                          <span className="font-pixel text-[7px] bg-amber-400 text-stone-900 px-1.5 py-0.5 rounded font-bold uppercase tracking-wider flex items-center gap-1">
+                            <Zap className="w-2.5 h-2.5" />
+                            <span>{isKk ? 'ЖЫЛЖЫТЫЛДЫ' : 'СДВИНУТО'}</span>
+                          </span>
+                        </div>
+                      )}
+
+                      <div className="flex items-center justify-between text-[11px] font-mono mb-1 text-stone-500">
+                        <span className="font-bold text-stone-800">{lesson.time}</span>
+                        <span className="font-bold text-[#7A1526]">
+                          {isKk ? `Каб. ${lesson.room}` : `Каб. ${lesson.room}`}
+                        </span>
+                      </div>
+                      <h5 className="font-bold text-sm leading-snug font-serif">
+                        {lesson.subject}
+                      </h5>
+                      <p className="text-[11px] mt-1 font-mono text-stone-600 flex items-center gap-1">
+                        <User className="w-3 h-3 text-[#7A1526]" />
+                        <span>{lesson.teacher}</span>
+                      </p>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Desktop Weekly Matrix View (hidden md:block) */}
+        <div className="hidden md:block overflow-x-auto">
           <div className="min-w-[800px] grid grid-cols-5 divide-x divide-stone-200">
             {scheduleData.map((dayGroup, idx) => (
               <div key={idx} className="p-3 space-y-3">

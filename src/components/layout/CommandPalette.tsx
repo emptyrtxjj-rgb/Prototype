@@ -205,7 +205,7 @@ export const CommandPalette: React.FC = () => {
   if (!isCommandPaletteOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-start justify-center pt-20 px-4">
+    <div className="fixed inset-0 z-50 flex items-start justify-center pt-6 sm:pt-20 px-3 sm:px-4">
       {/* Backdrop */}
       <div 
         className="fixed inset-0 bg-stone-900/60 backdrop-blur-sm transition-opacity"
@@ -215,8 +215,8 @@ export const CommandPalette: React.FC = () => {
       {/* Command Palette Box */}
       <div className="relative w-full max-w-2xl bg-white border border-stone-200 rounded-[20px] shadow-2xl overflow-hidden z-10 animate-fade-in font-sans">
         {/* Search Input Bar */}
-        <div className="flex items-center px-5 py-4 border-b border-stone-200 bg-[#FAF8F5]">
-          <Search className="w-5 h-5 text-[#7A1526] shrink-0 mr-3" />
+        <div className="flex items-center px-4 sm:px-5 py-3.5 sm:py-4 border-b border-stone-200 bg-[#FAF8F5]">
+          <Search className="w-5 h-5 text-[#7A1526] shrink-0 mr-2.5 sm:mr-3" />
           <input
             ref={inputRef}
             type="text"
@@ -225,12 +225,12 @@ export const CommandPalette: React.FC = () => {
             onKeyDown={handleKeyDown}
             placeholder={
               language === 'kk' 
-                ? 'Платформа бойынша іздеу, кабинет нөмірі немесе команда...' 
+                ? 'Платформа бойынша іздеу, кабинет немесе команда...' 
                 : 'Поиск по платформе, номер кабинета или команда...'
             }
-            className="w-full bg-transparent text-stone-900 placeholder-stone-400 text-sm focus:outline-none"
+            className="w-full bg-transparent text-stone-900 placeholder-stone-400 text-xs sm:text-sm focus:outline-none"
           />
-          <kbd className="font-mono text-xs bg-stone-200 text-stone-600 px-2 py-0.5 rounded border border-stone-300">
+          <kbd className="font-mono text-[10px] sm:text-xs bg-stone-200 text-stone-600 px-2 py-0.5 rounded border border-stone-300">
             ESC
           </kbd>
         </div>

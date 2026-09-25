@@ -47,7 +47,7 @@ export const Modal: React.FC<ModalProps> = ({
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4">
       {/* Backdrop */}
       <div 
         className="fixed inset-0 bg-stone-900/60 backdrop-blur-sm transition-opacity animate-fade-in"
@@ -57,13 +57,13 @@ export const Modal: React.FC<ModalProps> = ({
       {/* Modal Dialog */}
       <div 
         className={twMerge(clsx(
-          'relative w-full bg-white border border-stone-200 rounded-[24px] shadow-2xl overflow-hidden z-10 animate-fade-in text-stone-900',
+          'relative w-full bg-white border border-stone-200 rounded-[20px] sm:rounded-[24px] shadow-2xl overflow-hidden z-10 animate-fade-in text-stone-900',
           maxWidths[maxWidth]
         ))}
       >
-        <div className="px-6 py-4 border-b border-stone-200 bg-[#FAF8F5] flex items-center justify-between">
+        <div className="px-4 sm:px-6 py-3.5 sm:py-4 border-b border-stone-200 bg-[#FAF8F5] flex items-center justify-between">
           <div>
-            <h3 className="font-serif font-bold text-lg text-stone-900">{title}</h3>
+            <h3 className="font-serif font-bold text-base sm:text-lg text-stone-900">{title}</h3>
             {subtitle && <p className="text-xs text-stone-500 font-sans mt-0.5">{subtitle}</p>}
           </div>
           <button
@@ -73,7 +73,7 @@ export const Modal: React.FC<ModalProps> = ({
             <X className="w-5 h-5" />
           </button>
         </div>
-        <div className="p-6 max-h-[80vh] overflow-y-auto font-sans">
+        <div className="p-4 sm:p-6 max-h-[82vh] overflow-y-auto font-sans">
           {children}
         </div>
       </div>

@@ -98,7 +98,7 @@ export const HomePage: React.FC = () => {
           </div>
 
           {/* Headline in bold Climate Crisis font */}
-          <h1 className="font-climate text-3xl sm:text-5xl md:text-6xl text-white tracking-wide leading-[1.15] mb-5 text-center drop-shadow-xl uppercase">
+          <h1 className="font-climate text-2xl sm:text-5xl md:text-6xl text-white tracking-wide leading-[1.15] mb-5 text-center drop-shadow-xl uppercase break-words px-2">
             {isKk ? (
               <>
                 SMART SCHOOL KZ <br />
@@ -113,17 +113,17 @@ export const HomePage: React.FC = () => {
           </h1>
 
           {/* Subtitle in classical Kazakh serif font */}
-          <p className="text-white/90 text-sm sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8 font-serif">
+          <p className="text-white/90 text-xs sm:text-base md:text-lg max-w-3xl mx-auto leading-relaxed mb-8 font-serif px-2">
             {isKk
               ? 'Қазақстанның барлық орта мектептері мен лицейлеріне арналған мемлекеттік цифрлық білім экоплатформасы: халықаралық құзыреттер матрицасы, оқушы кабинеті, AI сабақ кестесі, академиялық ментор және қағазсыз мектеп стандарты.'
               : 'Государственная цифровая образовательная экосистема для всех школ и лицеев Казахстана: международная матрица компетенций, умное расписание уроков без накладок, AI академический ментор и стандарт безбумажной школы.'}
           </p>
 
           {/* Dual Action Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto px-4 sm:px-0">
             <Link
               to="/dashboard"
-              className="btn-crimson text-sm sm:text-base py-3.5 px-9 shadow-2xl hover:scale-105 flex items-center gap-2 font-serif font-semibold"
+              className="btn-crimson text-xs sm:text-base py-3 sm:py-3.5 px-6 sm:px-9 shadow-2xl hover:scale-105 flex items-center justify-center gap-2 font-serif font-semibold w-full sm:w-auto"
             >
               <span>{isKk ? 'Порталға кіру (Оқушы кабинеті)' : 'Войти в кабинет учащегося'}</span>
               <ArrowRight className="w-4 h-4 ml-1" />
@@ -131,7 +131,7 @@ export const HomePage: React.FC = () => {
 
             <Link
               to="/schedule"
-              className="btn-crimson-outline text-sm sm:text-base py-3.5 px-8 shadow-xl bg-black/40 hover:bg-black/60 text-white border-white/40 flex items-center gap-2 font-serif"
+              className="btn-crimson-outline text-xs sm:text-base py-3 sm:py-3.5 px-6 sm:px-8 shadow-xl bg-black/40 hover:bg-black/60 text-white border-white/40 flex items-center justify-center gap-2 font-serif w-full sm:w-auto"
             >
               <span>{isKk ? 'AI Сабақ кестесі' : 'AI Расписание занятий'}</span>
               <ArrowUpRight className="w-4 h-4 text-[#E6CA85]" />
@@ -417,24 +417,24 @@ export const HomePage: React.FC = () => {
               <span className="text-xs font-mono text-[#C5A059] block uppercase tracking-wider mb-2">
                 {isKk ? 'Өңірді таңдаңыз:' : 'Выберите регион:'}
               </span>
-              <div className="space-y-1.5">
+              <div className="flex lg:flex-col overflow-x-auto lg:overflow-x-visible gap-2 lg:gap-1.5 pb-2 lg:pb-0 -mx-2 px-2 lg:mx-0 lg:px-0">
                 {kazakhstanRegions.map((reg, idx) => (
                   <button
                     key={idx}
                     onClick={() => setSelectedRegion(idx)}
-                    className={`w-full text-left p-3.5 rounded-xl border transition-all flex items-center justify-between ${
+                    className={`shrink-0 lg:w-full min-w-[200px] lg:min-w-0 text-left p-3 sm:p-3.5 rounded-xl border transition-all flex items-center justify-between ${
                       selectedRegion === idx
                         ? 'bg-[#7A1526] border-[#E6CA85] text-white shadow-lg'
                         : 'bg-[#1A1D22] border-stone-800 text-stone-300 hover:border-stone-600'
                     }`}
                   >
-                    <div className="flex items-center gap-3">
-                      <Building2 className={`w-4 h-4 ${selectedRegion === idx ? 'text-[#E6CA85]' : 'text-stone-500'}`} />
-                      <span className="font-serif font-bold text-sm">{reg.name}</span>
+                    <div className="flex items-center gap-2.5 sm:gap-3">
+                      <Building2 className={`w-4 h-4 shrink-0 ${selectedRegion === idx ? 'text-[#E6CA85]' : 'text-stone-500'}`} />
+                      <span className="font-serif font-bold text-xs sm:text-sm whitespace-nowrap">{reg.name}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <span className="text-xs font-mono opacity-80">{reg.schools} {isKk ? 'мектеп' : 'школ'}</span>
-                      <ChevronRight className="w-3.5 h-3.5 text-stone-400" />
+                    <div className="flex items-center gap-2 shrink-0">
+                      <span className="text-[11px] sm:text-xs font-mono opacity-80">{reg.schools} {isKk ? 'мектеп' : 'школ'}</span>
+                      <ChevronRight className="w-3.5 h-3.5 text-stone-400 hidden sm:block" />
                     </div>
                   </button>
                 ))}

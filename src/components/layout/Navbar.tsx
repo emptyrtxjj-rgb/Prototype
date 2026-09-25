@@ -118,13 +118,13 @@ export const Navbar: React.FC = () => {
 
         {/* Center Column: National Emblem Crest & Wordmark */}
         <div className="flex items-center justify-center">
-          <Link to="/" className="flex items-center gap-3 group">
-            <AcademicCrest size={42} className="group-hover:scale-105 transition-transform" />
+          <Link to="/" className="flex items-center gap-2 sm:gap-3 group">
+            <AcademicCrest size={36} className="sm:w-[42px] sm:h-[42px] group-hover:scale-105 transition-transform shrink-0" />
             <div className="text-left">
-              <div className="font-serif font-bold text-lg sm:text-xl tracking-tight text-[#1C1F23] leading-none group-hover:text-[#7A1526] transition-colors">
+              <div className="font-serif font-bold text-sm sm:text-xl tracking-tight text-[#1C1F23] leading-none group-hover:text-[#7A1526] transition-colors whitespace-nowrap">
                 SMART SCHOOL KZ
               </div>
-              <div className="font-pixel text-[8px] tracking-wider text-[#C5A059] mt-0.5">
+              <div className="font-pixel text-[7px] sm:text-[8px] tracking-wider text-[#C5A059] mt-0.5 hidden xs:block">
                 NATIONAL EDTECH PLATFORM
               </div>
             </div>
@@ -132,12 +132,13 @@ export const Navbar: React.FC = () => {
         </div>
 
         {/* Right Column: Search, Language Switcher [KZ | RU], Portal Button */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           {/* Quick Search Trigger */}
           <button
             onClick={() => setCommandPaletteOpen(true)}
-            className="p-2 rounded-full hover:bg-stone-100 text-stone-600 hover:text-[#7A1526] transition-colors"
+            className="p-2 sm:p-2.5 rounded-full hover:bg-stone-100 text-stone-600 hover:text-[#7A1526] transition-colors"
             title="Іздеу / Поиск (⌘K)"
+            aria-label="Search"
           >
             <Search className="w-4 h-4" />
           </button>
@@ -146,7 +147,7 @@ export const Navbar: React.FC = () => {
           <div className="flex items-center p-0.5 rounded-full bg-stone-100 border border-stone-200 shadow-inner">
             <button
               onClick={() => setLanguage('kk')}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-200 ${
+              className={`px-2 sm:px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-200 ${
                 isKz
                   ? 'bg-[#7A1526] text-white shadow-xs font-bold'
                   : 'text-stone-600 hover:text-stone-900'
@@ -157,7 +158,7 @@ export const Navbar: React.FC = () => {
             </button>
             <button
               onClick={() => setLanguage('ru')}
-              className={`px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-200 ${
+              className={`px-2 sm:px-2.5 py-1 text-xs font-semibold rounded-full transition-all duration-200 ${
                 !isKz
                   ? 'bg-[#7A1526] text-white shadow-xs font-bold'
                   : 'text-stone-600 hover:text-stone-900'
@@ -180,7 +181,7 @@ export const Navbar: React.FC = () => {
           {/* Mobile Menu Trigger */}
           <button
             onClick={() => setMobileMenuOpen(prev => !prev)}
-            className="lg:hidden p-2 rounded-lg text-stone-700 hover:bg-stone-100"
+            className="lg:hidden p-2 rounded-lg text-stone-700 hover:bg-stone-100 min-w-[40px] min-h-[40px] flex items-center justify-center"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -190,20 +191,20 @@ export const Navbar: React.FC = () => {
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden border-t border-stone-200 bg-white px-5 pt-4 pb-6 space-y-4 animate-academic-fade font-sans">
+        <div className="lg:hidden border-t border-stone-200 bg-white px-4 sm:px-5 pt-4 pb-6 space-y-4 animate-academic-fade font-sans max-h-[85vh] overflow-y-auto">
           <div className="flex items-center justify-between pb-3 border-b border-stone-100">
             <div className="flex items-center gap-2">
               <span className="text-xs text-stone-500 font-semibold">{isKz ? 'Тіл:' : 'Язык:'}</span>
               <div className="flex items-center p-0.5 rounded-full bg-stone-100 border border-stone-200">
                 <button
                   onClick={() => setLanguage('kk')}
-                  className={`px-2 py-0.5 text-xs font-bold rounded-full ${isKz ? 'bg-[#7A1526] text-white' : 'text-stone-600'}`}
+                  className={`px-2.5 py-0.5 text-xs font-bold rounded-full ${isKz ? 'bg-[#7A1526] text-white' : 'text-stone-600'}`}
                 >
                   KZ
                 </button>
                 <button
                   onClick={() => setLanguage('ru')}
-                  className={`px-2 py-0.5 text-xs font-bold rounded-full ${!isKz ? 'bg-[#7A1526] text-white' : 'text-stone-600'}`}
+                  className={`px-2.5 py-0.5 text-xs font-bold rounded-full ${!isKz ? 'bg-[#7A1526] text-white' : 'text-stone-600'}`}
                 >
                   RU
                 </button>
@@ -220,16 +221,51 @@ export const Navbar: React.FC = () => {
           </div>
 
           <div className="space-y-1">
-            {navLinks.map((item, idx) => (
-              <NavLink
-                key={idx}
-                to={item.to || '/dashboard'}
-                onClick={() => setMobileMenuOpen(false)}
-                className="block px-3 py-2 rounded-lg text-sm text-stone-800 hover:bg-stone-50 font-medium"
-              >
-                {item.label}
-              </NavLink>
-            ))}
+            {navLinks.map((item, idx) => {
+              if (item.isDropdown && item.items) {
+                return (
+                  <div key={idx} className="pt-2 pb-1 space-y-1">
+                    <div className="px-3 py-1 text-[10px] font-pixel text-[#7A1526] uppercase font-bold tracking-wider flex items-center gap-1.5">
+                      <span>{item.label}</span>
+                    </div>
+                    <div className="pl-2 space-y-1 border-l-2 border-[#7A1526]/20 ml-3">
+                      {item.items.map((sub, sIdx) => (
+                        <NavLink
+                          key={sIdx}
+                          to={sub.to}
+                          onClick={() => setMobileMenuOpen(false)}
+                          className={({ isActive }) =>
+                            `block px-3 py-2 rounded-lg text-xs font-serif transition-colors ${
+                              isActive
+                                ? 'bg-[#7A1526]/10 text-[#7A1526] font-bold'
+                                : 'text-stone-700 hover:bg-stone-50'
+                            }`
+                          }
+                        >
+                          {sub.label}
+                        </NavLink>
+                      ))}
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <NavLink
+                  key={idx}
+                  to={item.to || '/dashboard'}
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={({ isActive }) =>
+                    `block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+                      isActive
+                        ? 'bg-[#7A1526]/10 text-[#7A1526] font-bold'
+                        : 'text-stone-800 hover:bg-stone-50'
+                    }`
+                  }
+                >
+                  {item.label}
+                </NavLink>
+              );
+            })}
           </div>
         </div>
       )}

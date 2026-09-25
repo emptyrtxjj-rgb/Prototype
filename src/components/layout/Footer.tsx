@@ -45,7 +45,7 @@ export const Footer: React.FC = () => {
             </p>
           </div>
 
-          <form onSubmit={handleSubscribe} className="flex items-center w-full max-w-md gap-2">
+          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row items-stretch sm:items-center w-full max-w-md gap-2.5">
             <div className="relative flex-1">
               <input
                 type="email"
@@ -58,7 +58,7 @@ export const Footer: React.FC = () => {
             </div>
             <button
               type="submit"
-              className="h-11 px-6 rounded-full bg-white text-[#7A1526] font-semibold text-xs sm:text-sm hover:bg-stone-100 transition-all shrink-0 flex items-center gap-1.5 shadow-md"
+              className="h-11 px-6 rounded-full bg-white text-[#7A1526] font-semibold text-xs sm:text-sm hover:bg-stone-100 transition-all shrink-0 flex items-center justify-center gap-1.5 shadow-md w-full sm:w-auto"
             >
               <span>{subscribed ? (isKk ? 'Жазылдыңыз!' : 'Вы подписаны!') : (isKk ? 'Жазылу' : 'Подписаться')}</span>
               <ArrowRight className="w-3.5 h-3.5" />

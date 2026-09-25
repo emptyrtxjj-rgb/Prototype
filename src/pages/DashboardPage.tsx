@@ -419,10 +419,10 @@ export const DashboardPage: React.FC = () => {
           </div>
 
           {/* Tab Selector */}
-          <div className="flex items-center p-1 bg-stone-100 rounded-xl border border-stone-200 text-xs font-mono">
+          <div className="flex items-center p-1 bg-stone-100 rounded-xl border border-stone-200 text-xs font-mono max-w-full overflow-x-auto whitespace-nowrap scrollbar-none">
             <button
               onClick={() => setActiveTab('matrix')}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
+              className={`px-3 py-1.5 rounded-lg shrink-0 transition-all ${
                 activeTab === 'matrix' 
                   ? 'bg-white text-[#7A1526] font-bold shadow-xs' 
                   : 'text-stone-600 hover:text-stone-900'
@@ -432,7 +432,7 @@ export const DashboardPage: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('radar')}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
+              className={`px-3 py-1.5 rounded-lg shrink-0 transition-all ${
                 activeTab === 'radar' 
                   ? 'bg-white text-[#7A1526] font-bold shadow-xs' 
                   : 'text-stone-600 hover:text-stone-900'
@@ -442,7 +442,7 @@ export const DashboardPage: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('portfolio')}
-              className={`px-3 py-1.5 rounded-lg transition-all ${
+              className={`px-3 py-1.5 rounded-lg shrink-0 transition-all ${
                 activeTab === 'portfolio' 
                   ? 'bg-white text-[#7A1526] font-bold shadow-xs' 
                   : 'text-stone-600 hover:text-stone-900'
@@ -515,12 +515,76 @@ export const DashboardPage: React.FC = () => {
               </h3>
             </div>
 
-            <span className="text-xs font-mono text-stone-500 bg-stone-100 px-3 py-1 rounded-full">
+            <span className="text-xs font-mono text-stone-500 bg-stone-100 px-3 py-1 rounded-full self-start sm:self-auto">
               {isKk ? 'Академиялық кезең: 2025–2026 / 2-семестр' : 'Академический период: 2025–2026 / 2-й семестр'}
             </span>
           </div>
 
-          <div className="overflow-x-auto">
+          {/* Mobile Cards View (md:hidden) */}
+          <div className="md:hidden space-y-3">
+            {subjectsData.map((sub) => (
+              <div key={sub.id} className="p-4 rounded-xl bg-[#FAF8F5] border border-stone-200 space-y-3">
+                <div className="flex items-start justify-between gap-2">
+                  <div>
+                    <h4 className="font-serif font-bold text-stone-900 text-sm">
+                      {isKk ? sub.nameKk : sub.nameRu}
+                    </h4>
+                    <span className="text-[11px] text-stone-500 font-mono">
+                      {isKk ? sub.teacherKk : sub.teacherRu}
+                    </span>
+                  </div>
+                  <div className="text-right shrink-0">
+                    <span className="font-mono font-bold text-xs text-emerald-800 bg-emerald-50 px-2.5 py-0.5 rounded border border-emerald-300 block">
+                      {sub.overallMastery}%
+                    </span>
+                    <span className="text-[9px] font-mono text-emerald-700 block mt-0.5">
+                      {isKk ? sub.tierKk : sub.tierRu}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-4 gap-1.5 text-center py-2 border-y border-stone-200/60 font-mono text-[10px]">
+                  <div className="p-1 rounded bg-white border border-stone-200">
+                    <span className="text-stone-400 block text-[9px]">{isKk ? 'Теория' : 'Теория'}</span>
+                    <span className="font-bold text-stone-800">{sub.theoryScore}%</span>
+                  </div>
+                  <div className="p-1 rounded bg-white border border-stone-200">
+                    <span className="text-stone-400 block text-[9px]">{isKk ? 'Практ.' : 'Практ.'}</span>
+                    <span className="font-bold text-stone-800">{sub.practicalScore}%</span>
+                  </div>
+                  <div className="p-1 rounded bg-white border border-stone-200">
+                    <span className="text-stone-400 block text-[9px]">{isKk ? 'Зертх.' : 'Лаб.'}</span>
+                    <span className="font-bold text-stone-800">{sub.labProjectScore}%</span>
+                  </div>
+                  <div className="p-1 rounded bg-white border border-stone-200">
+                    <span className="text-stone-400 block text-[9px]">{isKk ? 'Қорғау' : 'Аудит'}</span>
+                    <span className="font-bold text-stone-800">{sub.defenseScore}%</span>
+                  </div>
+                </div>
+
+                <div className="space-y-1">
+                  <p className="font-serif text-stone-700 text-xs">
+                    {isKk ? sub.currentMilestoneKk : sub.currentMilestoneRu}
+                  </p>
+                  <div className="flex items-center justify-between text-[10px] font-mono pt-1 text-stone-500">
+                    {sub.status === 'completed' ? (
+                      <span className="text-emerald-700 font-semibold flex items-center gap-1">
+                        <CheckCircle2 className="w-3 h-3" /> {isKk ? 'Қорғалды' : 'Защищено'}
+                      </span>
+                    ) : (
+                      <span className="text-amber-700 font-semibold flex items-center gap-1">
+                        <Sparkles className="w-3 h-3" /> {isKk ? 'Орындалуда' : 'В процессе'}
+                      </span>
+                    )}
+                    <span>{isKk ? sub.deadlineKk : sub.deadlineRu}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table View (hidden md:block) */}
+          <div className="hidden md:block overflow-x-auto">
             <table className="w-full text-left text-xs border-collapse min-w-[850px]">
               <thead>
                 <tr className="border-b border-stone-200 bg-[#FAF8F5] text-stone-700 font-mono uppercase text-[11px]">

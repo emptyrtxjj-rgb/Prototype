@@ -349,7 +349,7 @@ export const ActivityPage: React.FC = () => {
           </div>
 
           {/* Interactive Glasses Grid */}
-          <div className="grid grid-cols-8 gap-2">
+          <div className="grid grid-cols-4 sm:grid-cols-8 gap-2">
             {Array.from({ length: 8 }).map((_, i) => {
               const isFilled = (i + 1) * glassSize <= waterMl;
               return (
@@ -374,17 +374,17 @@ export const ActivityPage: React.FC = () => {
           </div>
 
           {/* Quick Action Buttons */}
-          <div className="flex items-center gap-3 pt-2">
+          <div className="flex flex-wrap items-center gap-2 sm:gap-3 pt-2">
             <button
               onClick={() => handleWaterAdd(glassSize)}
-              className="flex-1 btn-crimson flex items-center justify-center gap-2 py-2.5 text-xs font-semibold uppercase tracking-wider font-serif"
+              className="flex-1 min-w-[140px] btn-crimson flex items-center justify-center gap-2 py-2.5 text-xs font-semibold uppercase tracking-wider font-serif"
             >
               <Plus className="w-4 h-4" />
               <span>{isKk ? '+1 стақан (250 мл)' : '+1 стакан (250 мл)'}</span>
             </button>
             <button
               onClick={() => handleWaterAdd(500)}
-              className="px-4 py-2.5 rounded-full bg-[#FAF8F5] hover:bg-stone-200 border border-stone-300 text-stone-700 font-semibold text-xs transition-all font-mono"
+              className="px-3.5 py-2.5 rounded-full bg-[#FAF8F5] hover:bg-stone-200 border border-stone-300 text-stone-700 font-semibold text-xs transition-all font-mono"
             >
               +0.5 л
             </button>
